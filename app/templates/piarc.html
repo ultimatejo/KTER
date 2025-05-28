@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% import "bootstrap_wtf.html" as wtf %}
+
+{% block content %}
+    <h1>Welcome to Daft Ideas 'r' us</h1>
+    <div>
+        <p>This page is a proof of concept.</p>
+    </div>
+
+    <div>
+        <p>This website is devoted to doing daft things and the fun that this can generate.</p>
+    </div>
+    <div>
+        <p>Should you find anything suitably daft for interest please steal the ideas with abandon
+    and enjoy your own adventure.</p>
+        <p>These are daft ideas and as such there is generally no purpose what-so-ever. Should you
+        spot purpose please know that this was not intentional..</p>
+    </div>
+    <div>
+        <p>This site is and will remain a work in progress as new things of interest occur I shall
+    add bits and pieces. May you find at least some part of stumbling upon this helpful, useful or entertaining.
+        </p>
+    </div>
+
+    <body>
+        <h1>{{ dData.title }}</h1>
+        <table>
+            <tr>
+                <th><h2>Text</h2></th>
+                <th><h2>Value</h2></th>
+                <th><h2>Image</h2></th>
+            </tr>
+            {% for dItem in dData.lItems %}
+                <tr>
+                    <td><i>{{ dItem.text }}</i></td>
+                    <td><p>Value: {{ dItem.value }}</p></td>
+                    <td><img src="{{ dItem.image }}" alt="{{ dItem.text }}" class="resizable-image" width="100"></td>
+                </tr>
+            {% endfor %}
+        </table>
+    </body>
+
+{% endblock %}
