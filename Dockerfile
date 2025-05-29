@@ -1,3 +1,6 @@
+FROM gcr.io/cloud-builders/gcloud
+RUN git config --system credential.helper gcloud.sh
+
 FROM python:3.11-alpine
 # Set up environment variables for Python
 #ENV PYTHONDONTWRITEBYTECODE 1
