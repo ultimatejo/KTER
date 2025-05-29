@@ -1,8 +1,8 @@
 FROM python:3.11-alpine
 
 # Set up environment variables for Python
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
+#ENV PYTHONDONTWRITEBYTECODE 1
+#ENV PYTHONUNBUFFERED 1
 
 # Create and set the working directory
 WORKDIR /app
@@ -11,10 +11,10 @@ WORKDIR /app
 COPY requirements.txt .
 
 # Install dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install -r requirements.txt
 
 # Copy the entire application code
-COPY . .
+COPY . ./
 
 # Expose the port your application will run on
 EXPOSE 8080
