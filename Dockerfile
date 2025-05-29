@@ -20,4 +20,8 @@ COPY . ./
 EXPOSE 8080
 
 # Specify the command to run on container start
-CMD ["python", "flask_app.py"]
+#CMD ["python", "flask_app.py"]
+# configure the container to run in an executed manner
+ENTRYPOINT [ "python" ]
+
+CMD ["flask_app.py" ]
