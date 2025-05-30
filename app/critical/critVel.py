@@ -72,7 +72,7 @@ def main(tunWid,tunHei,blkAra,ambTmp):
     #axGr3.set_ylabel('Critical Velocity (m/s)')
     axGr3.set_xlabel('Fire heat release rate (MW)')
 
-    fig1.savefig('/home/KTER/mysite/app/static/images/CV-MW.png')
+    fig1.savefig('/static/images/CV-MW.png')
     #fig1.show()
 
     # Now develop the charts
@@ -97,7 +97,7 @@ def main(tunWid,tunHei,blkAra,ambTmp):
     #axGr3.set_ylabel('Critical Velocity (m/s)')
     axFh3.set_xlabel('Tunnel Gradient (%)')
 
-    fig2.savefig('/home/KTER/mysite/app/static/images/CV-Grad.png')
+    fig2.savefig('/static/images/CV-Grad.png')
     #fig2.show()
 
     # Now develop the charts
@@ -122,7 +122,7 @@ def main(tunWid,tunHei,blkAra,ambTmp):
     #axGr6.set_ylabel('Critical Velocity (m/s)')
     axGr6.set_xlabel('Fire heat release rate (MW)')
 
-    fig3.savefig('/home/KTER/mysite/app/static/images/CV-Flow.png')
+    fig3.savefig('/static/images/CV-Flow.png')
     #fig3.show()
 def critVel(tunWid,tunHei,blkAra,ambTmp,FHRR,grad):
     # This fucntion calculates critical velocity and flame temperature
