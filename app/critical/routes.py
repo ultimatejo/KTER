@@ -1,7 +1,7 @@
 from datetime import datetime
 from flask import render_template, flash, make_response
 from flask_login import current_user, login_required
-from app import db
+#from app import db
 from app.critical.forms import CritVelForm
 from app.critical.critVel import main as cv
 from app.critical import bp
