@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+    <h1>Critical Velocity</h1>
+
+
+
+    {% if dData %}
+        <div>
+            <p>To repeat the calculation with alternative inputs click <a href="{{ url_for('critical.critVel') }}">here</a>.</p>
+        </div>
+        <table>
+            <tr>
+                <th>Description</th>
+                <th>Value</th>
+                <th>Units</th>
+            </tr>
+            {% for key in dict_key %}
+                <tr>
+                    <td class="col-md-2">{{ dData[key].label }}</td>
+                    <td class="col-md-2">{{ dData[key].value }}</td>
+                    <td class="col-md-2">{{ dData[key].units }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+
+        <table>
+            <tr>
+                <th><img style="max-width: 95%; height: auto;" src="/static/images/CV-MW.png"></th>
+                <th><img style="max-width: 95%; height: auto;" src="/static/images/CV-Grad.png"></th>
+            </tr>
+            <tr>
+                <th><img style="max-width: 95%; height: auto;" src="/static/images/CV-Flow.png"></th>
+            </tr>
+        </table>
+    {% else %}
+        <div>
+            <p>This is a subject which is being actively researched and developed within the tunnel ventilation industry. The methodology used in this website is taken from NFPA 502 2017.
+            There is some discussion currently ongoing about how to use new scale model research with the observations from full-scale testing. Therefore, ensure that the project that
+            you are using this information for will regard the NFPA 502 2017 method as applicable.</p>
+        </div>
+
+        <img style="max-width: 95%; height: auto;" src="/static/images/critVel.png">
+        <div>
+            <p>Source: Standard for Road tunnels, bridges and other limited access highways, NFPA 502, 2017 - Annex D</p>
+        </div>
+
+        {% if form %}
+            <h3>Required inputs</h3>
+            <hr>
+            <form action="" method="post" class="form" role="form">
+                {{ form.csrf_token() }}
+                <table>
+                    <tr>
+                        <td class="form-group col-md-6">{{ wtf.form_field(form.tunWid, class='form-control', placeholder='Tunnel width') }}</td>
+                        <td class="form-group col-md-6">{{ wtf.form_field(form.tunHei, class='form-control', placeholder='Tunnel height') }}</td>
+                    </tr>
+                    <tr>
+                        <td class="form-group col-md-6">{{ wtf.form_field(form.blkAra, class='form-control', placeholder='Blockage area') }}</td>
+                        <td class="form-group col-md-6">{{ wtf.form_field(form.ambTmp, class='form-control', placeholder='Ambient temperature') }}</td>
+                    </tr>
+                </table>
+                <div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        {% endif %}
+
+        <div>
+            <p>This function will produce a plot showing how the critical velocity vaires with fire size, convective fraction and gradient</p>
+        </div>
+    {% endif %}
+
+{% endblock %}
