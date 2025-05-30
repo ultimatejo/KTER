@@ -7,15 +7,14 @@ from app.critical.critVel import main as cv
 from app.critical import bp
 
 
-@bp.before_request
-def before_request():
-    if current_user.is_authenticated:
-        current_user.last_seen = datetime.utcnow()
-        db.session.commit()
+#@bp.before_request
+#def before_request():
+#    if current_user.is_authenticated:
+#        current_user.last_seen = datetime.utcnow()
+#        db.session.commit()
 
 
 @bp.route('/critVel', methods=['GET','POST'])
-@login_required
 def critVel():
     form = CritVelForm()
     if form.validate_on_submit():
