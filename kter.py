@@ -11,7 +11,7 @@ def make_shell_context():
     return {'sa': sa, 'so': so, 'db': db, 'User': User, 'Post': Post,
             'Message': Message, 'Notification': Notification, 'Task': Task}
 '''
-from app import app
+#from app import app
 
 if __name__ == '__main__':
     app = create_app()
