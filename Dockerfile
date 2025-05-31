@@ -6,7 +6,7 @@ RUN pip install gunicorn pymysql cryptography
 
 COPY app app
 COPY migrations migrations
-COPY microblog.py config.py boot.sh ./
+COPY kter.py config.py boot.sh ./
 RUN chmod a+x boot.sh
 
 ENV FLASK_APP kter.py
