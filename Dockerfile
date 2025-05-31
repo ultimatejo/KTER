@@ -1,5 +1,5 @@
-FROM gcr.io/cloud-builders/gcloudAdd commentMore actions
-RUN git config --system credential.helper gcloud.sh
+#FROM gcr.io/cloud-builders/gcloudAdd commentMore actions
+#RUN git config --system credential.helper gcloud.sh
 
 FROM python:3.11-alpine
 # Set up environment variables for Python
