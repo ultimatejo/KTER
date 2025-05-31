@@ -1,16 +1,24 @@
-FROM python:3.11
+FROM gcr.io/cloud-builders/gcloudAdd commentMore actions
+RUN git config --system credential.helper gcloud.sh
 
+FROM python:3.11-alpine
+# Set up environment variables for Python
+#ENV PYTHONDONTWRITEBYTECODE 1
+#ENV PYTHONUNBUFFERED 1
+
+# Create and set the working directory
+WORKDIR /app
+
+# Copy only the requirements file first to leverage Docker caching
 COPY requirements.txt requirements.txt
+# Install dependencies
 RUN pip install -r requirements.txt
-RUN pip install gunicorn pymysql cryptography
 
-COPY app app
-COPY migrations migrations
-COPY kter.py config.py boot.sh ./
-RUN chmod a+x boot.sh
+# Copy the entire application code
+COPY . .
 
-ENV FLASK_APP kter.py
-RUN flask translate compile
+# Expose the port your application will run on
+EXPOSE 8080
 
-EXPOSE 5000
-ENTRYPOINT ["./boot.sh"]
+# Specify the command to run on container start
+CMD ["python", "kter.py"]
